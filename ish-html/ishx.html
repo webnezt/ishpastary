@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Douceur | Artisanal Pastries | Umhlanga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --rose: #F8D7DA;
+            --cream: #FFF9F0;
+            --charcoal: #2D2D2D;
+            --sage: #E8F5E9;
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            padding: 1.2rem 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 2.5rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--gold);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1603532648955-a0961a8e8f9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 80px;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 0.9rem 2.5rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+        
+        /* Philosophy Section */
+        .philosophy {
+            padding: 8rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .philosophy-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .philosophy-text {
+            flex: 1;
+        }
+        
+        .philosophy-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+        
+        .philosophy-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .philosophy-image {
+            flex: 1;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1626082927389-6cd65c2d3b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+        }
+        
+        /* Signature Creations */
+        .creations {
+            padding: 8rem 0;
+            background: var(--cream);
+        }
+        
+        .creations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .creation-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .creation-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .creation-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .creation-content {
+            padding: 1.8rem;
+        }
+        
+        .creation-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--charcoal);
+        }
+        
+        .creation-content p {
+            color: #666;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+        
+        .price {
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        
+        /* Artisan Process */
+        .process {
+            padding: 8rem 0;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .process-step {
+            text-align: center;
+            flex: 1;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 50%;
+            margin: 0 auto 1.8rem;
+        }
+        
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .process-step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Reservation */
+        .reservation {
+            padding: 8rem 0;
+            background: linear-gradient(to right, var(--rose), var(--sage));
+            position: relative;
+        }
+        
+        .reservation-container {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .reservation-text {
+            flex: 1;
+        }
+        
+        .reservation-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .reservation-text p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .reservation-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .footer-col p, .footer-col a {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--charcoal);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .philosophy-content,
+            .reservation-container {
+                flex-direction: column;
+            }
+            
+            .philosophy-image {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 3rem;
+                transition: all 0.3s ease;
+                box-shadow: var(--shadow);
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav li {
+                margin: 1.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .philosophy {
+                padding: 5rem 0;
+            }
+            
+            .creations,
+            .process,
+            .reservation {
+                padding: 5rem 0;
+            }
+            
+            .reservation-container {
+                padding: 2rem;
+            }
+            
+            .reservation-form {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 0 60px;
+            }
+            
+            .hero-content {
+                padding-top: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .philosophy-text h3 {
+                font-size: 1.7rem;
+            }
+            
+            .philosophy-image {
+                height: 300px;
+            }
+            
+            .creation-img {
+                height: 200px;
+            }
+            
+            .creation-content h3 {
+                font-size: 1.4rem;
+            }
+            
+            .process-step {
+                padding: 0 0.5rem;
+            }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .process-step h3 {
+                font-size: 1.3rem;
+            }
+            
+            .reservation-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">DOU<span>CEUR</span></a>
+            <button class="mobile-menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#philosophy">Our Story</a></li>
+                    <li><a href="#creations">Pastries</a></li>
+                    <li><a href="#process">Our Process</a></li>
+                    <li><a href="#reservation">Visit Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>ARTISANAL PASTRIES WITH A LOCAL TWIST</h1>
+            <p>Handcrafted delights inspired by Umhlanga's vibrant flavors and South African culinary heritage</p>
+            <a href="#creations" class="btn">Explore Our Pastries</a>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="philosophy">
+        <div class="container">
+            <div class="section-title">
+                <h2>OUR STORY</h2>
+            </div>
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h3>Rooted in Umhlanga</h3>
+                    <p>At Douceur, we celebrate the rich culinary tapestry of South Africa through our thoughtfully crafted pastries. Our recipes blend traditional French techniques with local ingredients and flavors that reflect the vibrant spirit of Umhlanga and the KwaZulu-Natal coast.</p>
+                    <p>We source ingredients from local farmers and producers whenever possible – from rooibos tea grown in the Cederberg mountains to Amarula cream from Limpopo, and fresh fruits from KZN orchards. Our kitchen is a place where heritage meets innovation.</p>
+                    <p>Every pastry tells a story of place and people. We believe that exceptional pastries don't need to be extravagant – they just need to be made with care, quality ingredients, and a touch of local soul.</p>
+                </div>
+                <div class="philosophy-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Creations -->
+    <section id="creations" class="creations">
+        <div class="container">
+            <div class="section-title">
+                <h2>OUR PASTRIES</h2>
+            </div>
+            <div class="creations-grid">
+                <div class="creation-card">
+                    <div class="creation-img" style="background-image: url('https://images.unsplash.com/photo-1631515231853-6a9b3c3c6e8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="creation-content">
+                        <h3>Bobotie Danish</h3>
+                        <p>Flaky Danish pastry filled with sweetened mince inspired by South Africa's national dish, topped with apricot glaze and toasted almonds.</p>
+                        <div class="price">R45</div>
+                    </div>
+                </div>
+                
+                <div class="creation-card">
+                    <div class="creation-img" style="background-image: url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="creation-content">
+                        <h3>Melktert Tartlet</h3>
+                        <p>Individual shortcrust tartlets filled with creamy cinnamon-infused milk custard, dusted with nutmeg and topped with caramelized puff pastry shards.</p>
+                        <div class="price">R38</div>
+                    </div>
+                </div>
+                
+                <div class="creation-card">
+                    <div class="creation-img" style="background-image: url('https://images.unsplash.com/photo-1605620718769-4d0a0c9b7a3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="creation-content">
+                        <h3>Rooibos & Honey Croissant</h3>
+                        <p>House-made croissant infused with rooibos tea, filled with local honey and vanilla crème pâtissière, finished with edible gold flakes.</p>
+                        <div class="price">R42</div>
+                    </div>
+                </div>
+                
+                <div class="creation-card">
+                    <div class="creation-img" style="background-image: url('https://images.unsplash.com/photo-1551024601-5e7b1a9b5b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="creation-content">
+                        <h3>Peppermint Crisp Slice</h3>
+                        <p>Layers of chocolate shortbread, peppermint crisp filling, and a dark chocolate ganache, finished with crushed peppermint crisp.</p>
+                        <div class="price">R35</div>
+                    </div>
+                </div>
+                
+                <div class="creation-card">
+                    <div class="creation-img" style="background-image: url('https://images.unsplash.com/photo-1626082927389-6cd65c2d3b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="creation-content">
+                        <h3>Cape Malay Koeksister Roll</h3>
+                        <p>Brioche roll soaked in spiced syrup with cinnamon, cardamom, and ginger, finished with crushed pistachios and orange zest.</p>
+                        <div class="price">R48</div>
+                    </div>
+                </div>
+                
+                <div class="creation-card">
+                    <div class="creation-img" style="background-image: url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="creation-content">
+                        <h3>Baobab & Marula Éclair</h3>
+                        <p>Choux pastry filled with baobab curd and marula cream, topped with a white chocolate glaze and freeze-dried fruit powder.</p>
+                        <div class="price">R52</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artisan Process -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>OUR PROCESS</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Local Sourcing</h3>
+                    <p>We build relationships with local farmers and producers to ensure the freshest ingredients that celebrate South African terroir.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Small Batch</h3>
+                    <p>Everything is made in small batches daily to ensure quality and freshness – never mass-produced.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Traditional Techniques</h3>
+                    <p>We honor time-honored pastry methods while incorporating local flavors and modern sensibilities.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Community Focus</h3>
+                    <p>Our patisserie serves as a gathering place for the Umhlanga community, where neighbors become friends over coffee and pastries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation -->
+    <section id="reservation" class="reservation">
+        <div class="container">
+            <div class="reservation-container">
+                <div class="reservation-text">
+                    <h2>VISIT OUR UMHLANGA BAKERY</h2>
+                    <p>Come experience our pastries in person at our cozy bakery in the heart of Umhlanga. We offer a warm, inviting space where you can enjoy your treats with locally roasted coffee or our signature rooibos tea.</p>
+                    <p>No reservation needed for walk-ins! We're open daily and ready to serve you with a smile.</p>
+                </div>
+                <div class="reservation-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message" placeholder="Any questions or special requests?"></textarea>
+                    </div>
+                    <button class="btn">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>DOU<span>CEUR</span></h3>
+                    <p>25 Lighthouse Road, Umhlanga, 4319</p>
+                    <p>Open daily: 7:00 - 18:00</p>
+                    <p>Serving coffee, pastries & light lunches</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Offerings</h3>
+                    <a href="#">Daily Pastries</a>
+                    <a href="#">Custom Cakes</a>
+                    <a href="#">Coffee & Tea</a>
+                    <a href="#">Catering</a>
+                    <a href="#">Baking Classes</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Blog</h3>
+                    <a href="#">Seasonal Ingredients</a>
+                    <a href="#">Baking Tips</a>
+                    <a href="#">Local Producers</a>
+                    <a href="#">Community Events</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <a href="mailto:hello@douceur-umhlanga.co.za">hello@douceur-umhlanga.co.za</a>
+                    <a href="tel:+27315661234">+27 31 566 1234</a>
+                    <a href="#">Order Online</a>
+                    <a href="#">Find Us</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Douceur Patisserie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Handle window resize to close mobile menu
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove('active');
+                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
